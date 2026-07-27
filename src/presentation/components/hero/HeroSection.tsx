@@ -20,7 +20,7 @@ export function HeroSection() {
         rootRef.current = node;
         viewportRef.current = node;
       }}
-      className="relative flex min-h-screen flex-col overflow-hidden bg-gloss-black"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-gloss-black"
     >
       <video
         ref={videoRef}
@@ -37,11 +37,11 @@ export function HeroSection() {
       <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(180deg, rgba(23,21,14,0.55) 0%, rgba(23,21,14,0.2) 35%, rgba(23,21,14,0.8) 100%)",
+          background: "linear-gradient(180deg, rgba(23,21,14,0.6) 0%, rgba(23,21,14,0.4) 30%, rgba(23,21,14,0.9) 100%)",
         }}
       />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-end px-6 pb-20 pt-32">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-end px-6 pt-20 pb-16 sm:pt-32 sm:pb-20">
         <span className="hero-fade-up opacity-100 motion-safe:opacity-0 inline-flex w-fit items-center rounded-lg border-[1.5px] border-pure-white/70 px-3 py-1.5 font-grotesk text-[14px] font-medium text-pure-white">
           {heroContent.eyebrow}
         </span>

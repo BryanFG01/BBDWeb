@@ -1,11 +1,17 @@
 export const projectsContent = {
   eyebrow: "Proyectos",
-  heading: "Un vistazo a lo último que construimos",
+  heading: "Creamos software real — mira todo lo que se puede hacer",
+  description:
+    "Landing pages, e-commerce, páginas estáticas, ERP, POS, apps móviles, plataformas B2B y más — construido a la medida y en producción.",
 };
 
-export const featuredProject = {
-  title: "Sistema de Facturación Electrónica",
-  description:
-    "Una plataforma multiempresa con facturación electrónica, POS, inventario y caja — 10 funciones integradas en un solo lugar, corriendo 100% en la nube.",
-  tags: ["Facturación electrónica", "POS", "Multiempresa"],
-};
+export const capabilities = [
+  "Landing pages",
+  "E-commerce",
+  "Páginas estáticas",
+  "ERP",
+  "POS",
+  "Apps móviles",
+  "Plataformas B2B",
+  "FinTech",
+];
