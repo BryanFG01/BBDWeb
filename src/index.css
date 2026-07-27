@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-gloss-black: #17150e;
+  --color-gloss-white: #f0f7f6;
+  --color-pure-white: #ffffff;
+  --color-solar-yellow: #cccc25;
+  --color-soft-charcoal: #272b30;
+  --color-mid-grey: #949494;
+  --color-light-coral: #ff7780;
+  --color-apricot: #ffe5d6;
+  --color-apricot-glow: #ffb36a;
+  --color-lavender-mist: #c0c8f6;
+  --color-periwinkle-fade: #9fa6ff;
+
+  /* Typography */
+  --font-grotesk: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-classic: "Fraunces", ui-serif, Georgia, serif;
+
+  --text-caption: 14px;
+  --text-body: 16px;
+  --text-subheading: 22px;
+  --text-heading-sm: 32px;
+  --text-heading: 40px;
+  --text-heading-lg: 72px;
+  --text-display: 96px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-grotesk);
+  font-weight: 500;
+  color: var(--color-gloss-black);
+  background: var(--color-pure-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
