@@ -1,43 +1,47 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap");
 @import "tailwindcss";
 
 @theme {
   /* Colors */
-  --color-gloss-black: #17150e;
-  --color-gloss-white: #f0f7f6;
-  --color-pure-white: #ffffff;
-  --color-solar-yellow: #cccc25;
-  --color-soft-charcoal: #272b30;
-  --color-mid-grey: #949494;
-  --color-light-coral: #ff7780;
-  --color-apricot: #ffe5d6;
-  --color-apricot-glow: #ffb36a;
-  --color-lavender-mist: #c0c8f6;
-  --color-periwinkle-fade: #9fa6ff;
+  --color-electric-indigo: #2da389;
+  --color-obsidian: #050505;
+  --color-charcoal: #151515;
+  --color-graphite: #1e1e1e;
+  --color-paper: #fdfdfd;
+  --color-silver: #e5e5e5;
+  --color-pearl: #d4d4d4;
+  --color-slate: #2f2f2f;
+  --color-ash: #a3a3a3;
+  --color-stone: #737373;
 
   /* Typography */
-  --font-grotesk: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-classic: "Fraunces", ui-serif, Georgia, serif;
+  --font-savee: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
-  --text-caption: 14px;
+  --text-caption: 13px;
   --text-body: 16px;
-  --text-subheading: 22px;
-  --text-heading-sm: 32px;
-  --text-heading: 40px;
-  --text-heading-lg: 72px;
-  --text-display: 96px;
+  --text-body-lg: 18px;
+  --text-subheading: 21px;
+  --text-heading-sm: 24px;
+  --text-heading: 30px;
+  --text-heading-lg: 36px;
+  --text-display: 60px;
+  --text-display-lg: 96px;
+
+  /* Border radius: binary system — 9999px pills (rounded-full, built into Tailwind)
+     and 14px cards (overrides the default --radius-xl step). */
+  --radius-xl: 14px;
 }
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
-  font-family: var(--font-grotesk);
-  font-weight: 500;
-  color: var(--color-gloss-black);
-  background: var(--color-pure-white);
+  font-family: var(--font-savee);
+  font-weight: 400;
+  color: var(--color-paper);
+  background: var(--color-obsidian);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

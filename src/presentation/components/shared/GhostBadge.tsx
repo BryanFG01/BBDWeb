@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export function GhostBadge({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex w-fit items-center rounded-lg border-[1.5px] border-gloss-black px-3 py-1.5 font-grotesk text-[14px] font-medium tracking-[0.063em] text-gloss-black uppercase">
+    <span className="inline-flex w-fit items-center rounded-full border border-pearl/30 px-3 py-1.5 font-savee text-[13px] font-normal tracking-[0.015em] text-pearl">
       {children}
     </span>
   );

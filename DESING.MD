@@ -1,55 +1,48 @@
-# Scheduling — Style Reference
-> Editorial ink on cream paper
+# Savee — Style Reference
+> Black canvas for visual curators
 
-**Theme:** light
+**Theme:** dark
 
-GlossGenius operates in a near-monochrome editorial register: a warm-black ink (#17150e) stamped onto white and a faint mint-cream (#f0f7f6) canvas, with a single chartreuse-yellow (#cccc25) that functions like a highlighter pen — appearing sparingly on primary CTAs, metric callouts, and decorative washes. The typography is the brand's loudest element: a custom Basel pairing where the grotesque Grotesk handles UI and body while Classic — a sharper, slightly serifed display face — drops in only at 96–144px for editorial statements, tightened to 0.8–0.95 line-height so letterforms stack like vinyl. Components are deliberately lightweight: flat 8px-radius cards, no shadows, pill-shaped buttons at 1440px, and 1.5px hairline dividers. Sections breathe generously (80–120px gaps) and alternate between pure white and the mint tint, creating the cadence of a magazine spread rather than a product dashboard.
+Savee operates in near-total darkness: an almost pure black canvas (#050505) where the only chromatic element is a single electric indigo (#1500ff) that punctuates the interface like a neon gallery light. Typography does all the heavy lifting — a single custom sans-serif used at every level, from 96px display headlines with 0.96 line-height and -0.04em tracking down to 13px captions, creating a confident editorial rhythm that feels more like a museum wall than a SaaS dashboard. Surfaces are barely distinguishable: the page canvas, elevated cards (#151515), and deeper overlays (#1e1e1e) form a near-invisible hierarchy that lets imagery and type carry the experience. The lone violet accent on the primary CTA is the only visual noise the system permits — everything else is white type on black, pill-shaped controls, and generous 64px section breathing room.
 
 ## Tokens — Colors
 
 | Name | Value | Token | Role |
 |------|-------|-------|------|
-| Gloss Black | `#17150e` | `--color-gloss-black` | Primary text, dark card surfaces, footer background, pill button fill — a warm near-black that reads softer than pure #000 and makes the large display type feel printed rather than digital; 1.5px borders and dividers — uses the same warm-black as text to keep all structural lines tonally unified |
-| Gloss White | `#f0f7f6` | `--color-gloss-white` | Page tint sections, card surfaces, badge fills, button text on dark — a barely-green-tinted off-white that warms the interface and creates gentle contrast bands against pure white |
-| Pure White | `#ffffff` | `--color-pure-white` | Primary page canvas, card surface, dark-button text, nav link color — used wherever maximum contrast is needed without any color temperature |
-| Solar Yellow | `linear-gradient(180deg, #cccc25, #cacd78)` | `--color-solar-yellow` | Yellow action color for filled buttons, selected navigation states, and focused conversion moments; Soft yellow-to-pale-yellow gradient used as decorative wash behind hero copy and section transitions |
-| Soft Charcoal | `#272b30` | `--color-soft-charcoal` | Secondary dark surface, deep section backgrounds — cooler alternative to Gloss Black for variant cards and panels |
-| Mid Grey | `#949494` | `--color-mid-grey` | Muted helper text, secondary labels — reserved for non-essential copy where readability is still required |
-| Light Coral | `#ff7780` | `--color-light-coral` | Accent tint for decorative illustrations and marketing gradient washes — never used for UI states |
-| Apricot | `#ffe5d6` | `--color-apricot` | Soft accent fill for illustration blocks and feature card backgrounds in the marketing surface |
-| Apricot Glow | `#ffb36a` | `--color-apricot-glow` | Warm illustration accent — pairs with Light Coral in editorial gradient compositions |
-| Lavender Mist | `#c0c8f6` | `--color-lavender-mist` | Cool illustration accent balancing the warm Coral/Apricot pair in product showcase gradients |
-| Periwinkle Fade | `linear-gradient(180deg, #9fa6ff, #b3bae8)` | `--color-periwinkle-fade` | Periwinkle-to-lavender gradient used in product feature illustrations and decorative dividers |
+| Electric Indigo | `#1500ff` | `--color-electric-indigo` | Violet supporting accent for decorative details and low-frequency emphasis. Do not promote it to the primary CTA color |
+| Obsidian | `#050505` | `--color-obsidian` | Page canvas, deepest background — the void that all content sits on |
+| Charcoal | `#151515` | `--color-charcoal` | Elevated surface, product preview frames, secondary panels |
+| Graphite | `#1e1e1e` | `--color-graphite` | Deeper overlay surface, hover states on dark cards, input fields |
+| Paper | `#fdfdfd` | `--color-paper` | Primary text, inverted surface, button text, high-contrast foreground |
+| Silver | `#e5e5e5` | `--color-silver` | Hairline borders, dividers, subtle structural edges |
+| Pearl | `#d4d4d4` | `--color-pearl` | Secondary text, subdued headings, placeholder body copy |
+| Slate | `#2f2f2f` | `--color-slate` | Footer borders, low-contrast dividers between dark zones |
+| Ash | `#a3a3a3` | `--color-ash` | Muted helper text, inactive icons, de-emphasized metadata |
+| Stone | `#737373` | `--color-stone` | Tertiary text, timestamps, supplementary labels |
 
 ## Tokens — Typography
 
-### Basel Grotesk Book — Workhorse for all UI: nav, body, buttons, badges, card copy, h2–h6 headings, and the 72px section headlines. Weight 500 is the default (heavier than typical body text) which gives the interface a confident, almost magazine-pull-quote density. The slight geometric warmth keeps it from feeling clinical. · `--font-basel-grotesk-book`
-- **Substitute:** Inter, Manrope, or Söhne
+### Savee Font — The sole typeface — a custom geometric sans used at every scale. Weight 400 carries the editorial body and nav; weight 500 appears on buttons and emphasized labels. The 96px display at 0.96 line-height with -0.04em tracking is the system's signature: it compresses into a dense confident block rather than stretching vertically, making the headline feel sculptural. · `--font-savee-font`
+- **Substitute:** Inter, DM Sans, or Satoshi (geometric sans-serifs with similar x-height proportions and tight default tracking)
 - **Weights:** 400, 500
-- **Sizes:** 14, 16, 22, 32, 40, 72
-- **Line height:** 1.40–1.50 at body, 1.20 at subhead, 1.10 at h3, 1.00 at h2, 0.97 at h1
-- **Letter spacing:** -0.04em at h5/h6, -0.03em at h1/h2/h3, -0.02em at h4, 0 at body
-- **Role:** Workhorse for all UI: nav, body, buttons, badges, card copy, h2–h6 headings, and the 72px section headlines. Weight 500 is the default (heavier than typical body text) which gives the interface a confident, almost magazine-pull-quote density. The slight geometric warmth keeps it from feeling clinical.
-
-### Basel Classic Book — Reserved exclusively for display/editorial statements at 96px+ and the 40px h1 variant. Its sharper, slightly more serifed terminals distinguish hero-level copy from section headlines — a deliberate two-voice system that signals "this is the big idea" vs "this is the next thought." Weight stays at 400 even at 144px because the tight 0.8 line-height and -0.03em tracking already create visual mass. · `--font-basel-classic-book`
-- **Substitute:** Tiempos Headline, GT Sectra Display, or Canela
-- **Weights:** 400, 500
-- **Sizes:** 40, 96, 144
-- **Line height:** 0.80–0.97
-- **Letter spacing:** -0.03em at all sizes
-- **Role:** Reserved exclusively for display/editorial statements at 96px+ and the 40px h1 variant. Its sharper, slightly more serifed terminals distinguish hero-level copy from section headlines — a deliberate two-voice system that signals "this is the big idea" vs "this is the next thought." Weight stays at 400 even at 144px because the tight 0.8 line-height and -0.03em tracking already create visual mass.
+- **Sizes:** 13, 14, 16, 18, 21, 24, 30, 36, 60, 96
+- **Line height:** 0.96, 1.00, 1.11, 1.13, 1.23, 1.25, 1.29, 1.33, 1.38, 1.50
+- **Letter spacing:** -0.04em at 96px, -0.02em at 60px, -0.01em at 36-30px, normal at 24-18px, +0.01em at 16px, +0.015em at 14-13px
+- **Role:** The sole typeface — a custom geometric sans used at every scale. Weight 400 carries the editorial body and nav; weight 500 appears on buttons and emphasized labels. The 96px display at 0.96 line-height with -0.04em tracking is the system's signature: it compresses into a dense confident block rather than stretching vertically, making the headline feel sculptural.
 
 ### Type Scale
 
 | Role | Size | Line Height | Letter Spacing | Token |
 |------|------|-------------|----------------|-------|
-| caption | 14px | 1.4 | — | `--text-caption` |
-| body | 16px | 1.5 | — | `--text-body` |
-| subheading | 22px | 1.2 | -0.44px | `--text-subheading` |
-| heading-sm | 32px | 1.1 | -0.64px | `--text-heading-sm` |
-| heading | 40px | 1 | -1.2px | `--text-heading` |
-| heading-lg | 72px | 0.97 | -2.16px | `--text-heading-lg` |
-| display | 96px | 0.95 | -2.88px | `--text-display` |
+| caption | 13px | 1.5 | 0.195px | `--text-caption` |
+| body | 16px | 1.5 | 0.16px | `--text-body` |
+| body-lg | 18px | 1.38 | — | `--text-body-lg` |
+| subheading | 21px | 1.33 | — | `--text-subheading` |
+| heading-sm | 24px | 1.29 | -0.24px | `--text-heading-sm` |
+| heading | 30px | 1.25 | -0.3px | `--text-heading` |
+| heading-lg | 36px | 1.13 | -0.36px | `--text-heading-lg` |
+| display | 60px | 1 | -1.2px | `--text-display` |
+| display-lg | 96px | 0.96 | -3.84px | `--text-display-lg` |
 
 ## Tokens — Spacing & Shapes
 
@@ -67,178 +60,158 @@ GlossGenius operates in a near-monochrome editorial register: a warm-black ink (
 | 16 | 16px | `--spacing-16` |
 | 20 | 20px | `--spacing-20` |
 | 24 | 24px | `--spacing-24` |
-| 28 | 28px | `--spacing-28` |
 | 32 | 32px | `--spacing-32` |
-| 44 | 44px | `--spacing-44` |
+| 40 | 40px | `--spacing-40` |
 | 48 | 48px | `--spacing-48` |
-| 56 | 56px | `--spacing-56` |
+| 64 | 64px | `--spacing-64` |
 | 80 | 80px | `--spacing-80` |
 | 96 | 96px | `--spacing-96` |
-| 120 | 120px | `--spacing-120` |
-| 228 | 228px | `--spacing-228` |
+| 128 | 128px | `--spacing-128` |
 
 ### Border Radius
 
 | Element | Value |
 |---------|-------|
-| cards | 8px |
-| badges | 8px |
-| inputs | 12px |
-| buttons | 1440px |
-| containers | 24px |
-| largeCards | 16px |
+| tags | 9999px |
+| cards | 14px |
+| pills | 9999px |
+| inputs | 9999px |
+| buttons | 9999px |
 
 ### Layout
 
 - **Page max-width:** 1200px
-- **Section gap:** 80px
+- **Section gap:** 64px
 - **Card padding:** 24px
-- **Element gap:** 16px
+- **Element gap:** 12px
 
 ## Components
 
-### Primary Pill Button (Dark)
-**Role:** Highest-emphasis action — trial sign-up, primary conversion
+### Primary Pill Button
+**Role:** The sole filled action in the system
 
-1440px border-radius (full pill), 12px 24px padding, #17150 fill, #f0f7f6 text, Basel Grotesk 16px weight 500. No border, no shadow. Sits as the rightmost header action on white backgrounds.
+Electric Indigo (#1500ff) background, Paper (#fdfdfd) text at 14-16px weight 500, fully rounded 9999px radius, 12px 24px padding. This is the only place the brand color lives — every other interactive element defers to it. Appears once per viewport maximum to preserve its impact.
 
-### Primary Pill Button (Yellow Accent)
-**Role:** Hero CTA — demo request, primary conversion on dark hero photo
+### Ghost Pill Button
+**Role:** Secondary action that doesn't compete with the primary
 
-1440px radius, 12px 24px padding, #cccc25 fill, #17150 text, Basel Grotesk 16px weight 500. Used sparingly — appears once per page max, in the hero overlay.
+Transparent background, 1px Paper (#fdfdfd) border at ~30% opacity or full opacity, Paper text at 14px weight 500, 9999px radius, 10px 20px padding. Used for 'Sign up' and 'Join over 1M users' — the outlined variant lets the primary indigo button own the hierarchy.
 
-### Ghost Outline Button
-**Role:** Secondary action over imagery or dark surfaces
+### Navigation Bar
+**Role:** Minimal top-level site navigation
 
-1440px radius, 12px 24px padding, transparent fill, 1.5px solid #ffffff border, #ffffff text. Used on the dark hero photo overlay for the secondary 'Start free trial' action.
+Transparent background floating on the Obsidian canvas. Logo at left in Paper white, text-only nav links (Features, Marketplace, What's new, Reviews) centered in Pearl (#d4d4d4) at 14px, auth actions (Log in, Sign up) at right. No background fill, no shadow, no border — the nav exists purely as type on the void.
 
-### Text Nav Link
-**Role:** Top navigation items
+### Display Headline
+**Role:** Hero-level typography that defines the page
 
-No background, #17150 text, Basel Grotesk 16px weight 500, 8px horizontal padding, no underline. Hover transitions color only.
+96px Savee Font weight 500, Paper (#fdfdfd), line-height 0.96, letter-spacing -0.04em. The extreme tightness and massive scale make it read as a single sculptural block. Centered horizontally with generous top/bottom breathing room (64-80px). The hero is centered single-column — no split layout, no side imagery.
 
-### Feature Card (Mint)
-**Role:** Product screenshot showcase blocks on white sections
+### Editorial Body Block
+**Role:** Long-form persuasive text at unusual scale
 
-#f0f7f6 fill, 8px radius, 16px–24px padding, no shadow, no border. Contains inline product mockup imagery at 100% width with no additional chrome.
+36px Savee Font weight 400, Paper (#fdfdfd), line-height 1.13, letter-spacing -0.01em. This is body copy at headline scale — 36px is massive for prose, creating a magazine-like reading experience. Left-aligned, max-width ~800px, sits below the hero with 48-64px separation.
 
-### Dark Feature Card
-**Role:** High-contrast product showcase or testimonial blocks
+### Partner Logo Strip
+**Role:** Social proof band
 
-#17150 fill, 16px radius, generous padding (32–48px), white/mint text, no shadow. Creates a visual pause between lighter sections.
+Single horizontal row of grayscale brand logos (Apple, Google, Nike, Adobe, Pentagram, Airbnb, MWS) in Ash (#a3a3a3) or Pearl (#d4d4d4), evenly distributed across the full content width. Preceded by a small caption in Stone (#737373) at 13px. No logos colored, no hover effects — the strip is quiet authority.
 
-### Stat Block
-**Role:** Hero metrics in the social-proof band — 26%, 75%, 40hrs
+### Product Preview Frame
+**Role:** Large product screenshot or video container below the hero
 
-No card chrome. Display number in Basel Classic 96–144px weight 400, #17150, line-height 0.8–0.95, letter-spacing -0.03em. Small superscript '+' in the same style. Caption beneath in Basel Grotesk 16px weight 500, #17150e.
+Charcoal (#151515) background surface filling most of the viewport width, 14px border-radius, no border, no shadow. The subtle lift from canvas (#050505) to surface (#151515) is the only elevation cue — no drop shadows are used anywhere in the system.
 
-### Filled Badge
-**Role:** Status tags, count indicators, notification pills
+### Text Link
+**Role:** Inline navigation within body copy
 
-#f0f7f6 fill, #17150 text, 8px radius, 12px padding, Basel Grotesk 16px weight 500. Inline with adjacent content.
+Inherits body color (Paper or Pearl) with underline on hover only. No chromatic links — even interactive text stays in the neutral palette, reserving Electric Indigo exclusively for the primary CTA.
 
-### Ghost Badge
-**Role:** Section labels, filter tags, eyebrow text
+### Subhead Caption
+**Role:** Descriptive subtext under headlines
 
-Transparent fill, 1.5px solid #17150 border, #17150 text, 8px radius, 12px padding, Basel Grotesk 16px weight 500. Optionally with 0.063em letter-spacing for label variation.
+16-18px Savee Font weight 400, Pearl (#d4d4d4), centered, line-height 1.50. Sits 16-24px below the display headline. The muted color creates a clear visual step-down from the headline without using a different size or weight.
 
-### Carousel Arrow Control
-**Role:** Section navigation between feature cards or testimonials
+### Full-Width Section Spacer
+**Role:** Vertical rhythm between page sections
 
-40×40px square, 1.5px solid #17150 border, no fill, 8px radius, #17150 arrow icon. Sits flush-right of section heading.
+64-80px of pure Obsidian canvas with no visual element. Sections breathe into the void — no dividers, no background color shifts, no gradient transitions. The darkness itself is the separator.
 
-### Announcement Bar
-**Role:** Top-of-page promotional strip
+### Footer Divider
+**Role:** Low-contrast structural edge
 
-Full-width, #17150 fill, #f0f7f6 text, 12px vertical padding, Basel Grotesk 14px weight 500. Contains a single text link with optional chevron.
-
-### Chat Widget
-**Role:** Persistent customer support trigger
-
-56px circle, #17150 fill, white chat icon, bottom-right fixed position. Subtle drop shadow to lift from page content.
-
-### Metric Chip (Yellow)
-**Role:** Inline AI suggestion or highlight within product UI
-
-#cccc25 fill, #17150 text, 8px radius, 8px 12px padding, Basel Grotesk 14px weight 500. Appears inside the product screenshot to mark actionable items.
+1px horizontal line in Slate (#2f2f2f) or Silver (#e5e5e5) at ~10% opacity, spanning the content width. The only structural border in the entire system — used to separate the footer from the page body.
 
 ## Do's and Don'ts
 
 ### Do
-- Use Basel Classic Book only at 96px+; reserve it for the single biggest statement on a page
-- Set all heading line-height to 1.0 or below; the tight stacking is signature and not optional
-- Apply -0.03em letter-spacing on any text 40px or larger; 0 tracking at body sizes
-- Alternate section backgrounds between #ffffff and #f0f7f6 to create the magazine-spread cadence
-- Use #cccc25 (Solar Yellow) for exactly one element per view — hero CTA, a single stat chip, or a gradient wash — never as a general accent
-- Set border-radius to 1440px on every button and 8px on every standard card; mixing the two within a component family breaks the system
-- Use 1.5px borders (not 1px) for all dividers and ghost elements — the slightly heavier line reads as intentional ink rather than CSS default
+- Use #1500ff Electric Indigo exclusively for the single primary CTA on any given screen — never for secondary actions, links, icons, or decorative elements
+- Set display headlines at 96px with line-height 0.96 and letter-spacing -0.04em so the type compresses into a confident sculptural block rather than stretching
+- Apply 9999px border-radius to every button, tag, and pill — the pill shape is the system's only control geometry
+- Use 14px radius for card and product preview surfaces, and nothing else — keep the shape vocabulary to exactly two radii
+- Let the Obsidian canvas (#050505) be the separator between sections — add 64-80px of empty space rather than lines, color shifts, or gradient transitions
+- Set body prose at 36px when it needs to carry editorial weight; drop to 18px for functional descriptions. Never use 14-16px for primary page copy
+- Keep all text in the neutral palette (#fdfdfd, #d4d4d4, #a3a3a3) — the only chromatic color is the CTA indigo
 
 ### Don't
-- Don't introduce drop shadows on standard cards; the system is flat by design and shadows undermine the editorial feel
-- Don't use #000000 for text or fills — always warm it to #17150 to preserve the printed-ink quality
-- Don't pair Basel Classic with anything below 96px; the contrast in voice collapses at smaller sizes
-- Don't place yellow buttons on yellow gradient backgrounds — the CTA loses all emphasis
-- Don't add a third display weight (e.g. 600) to either font; the system only uses 400 and 500
-- Don't use the decorative illustration colors (Coral, Apricot, Lavender) for UI states, text, or borders — they are gradient art only
-- Don't add hover shadows to buttons; use background-color or border-color transitions exclusively
+- Never use #1500ff for anything other than the primary CTA fill — not for links, not for icons, not for hover states, not for badges
+- Never add drop shadows or elevation glows to cards — the system uses surface color shifts (#050505 → #151515 → #1e1e1e) for hierarchy, not shadows
+- Never set body text below 16px for primary content — captions and metadata can go to 13-14px, but main copy stays large
+- Never introduce additional accent colors, even in illustrations or partner logos — the partner strip stays grayscale to preserve the indigo's dominance
+- Never use border-radius values between 0px and 9999px for buttons — the system is binary: fully rounded pills or 14px card corners, nothing in between
+- Never apply gradients to backgrounds, buttons, or text — the system is flat monochrome with one solid color exception
+- Never use line-height above 1.50 for any text size — the tight line-heights (0.96-1.38) are the system's editorial signature
 
 ## Surfaces
 
 | Level | Name | Value | Purpose |
 |-------|------|-------|---------|
-| 0 | Canvas | `#ffffff` | Primary page background for header, content sections, and footer interior |
-| 1 | Tint | `#f0f7f6` | Alternating section bands, card surfaces, badge fills — creates the second visual register |
-| 2 | Ink | `#17150` | Dark cards, footer, announcement bar, primary buttons — highest-contrast surface for elevation |
-| 3 | Highlight | `#cccc25` | Accent surface for CTAs, metric chips, gradient washes — functional, never decorative chrome |
+| 0 | Canvas | `#050505` | Full-page background, the void surface |
+| 1 | Elevated Panel | `#151515` | Product preview frames, image containers, card surfaces |
+| 2 | Deep Overlay | `#1e1e1` | Input fields, nested interactive elements, hover states |
 
 ## Elevation
 
-- **Card:** `none — flat surfaces only, separation achieved through tint alternation and 1.5px hairlines`
-- **Chat Widget:** `0 4px 12px rgba(23, 21, 14, 0.15) — the only consistently elevated element, used to mark it as out-of-flow UI`
+The system deliberately avoids drop shadows entirely. Hierarchy is expressed through surface color steps (#050505 canvas → #151515 elevated panel → #1e1e1 deep overlay) and through type scale alone. The absence of shadows is a signature choice — it keeps the interface feeling like a flat gallery wall rather than a layered software product.
 
 ## Imagery
 
-Imagery alternates between two modes: editorial photography and product screenshot capture. The hero is a full-bleed documentary-style photograph of people working at a salon (warm, slightly desaturated, natural lighting, no staged poses) overlaid with white headline type — the photo sets lifestyle context without dominating. Product visuals are tight screen captures of the actual interface (calendar, analytics dashboard, payment flow) presented inside mint-tinted cards with no device frames or mockup chrome. Decorative gradient washes (yellow, periwinkle, green-fade) appear as full-bleed section backgrounds to break the rhythm between content blocks. Icons are minimal — mostly line-weight UI icons in product screenshots rather than illustrative iconography. No 3D renders, no abstract geometric art, no stock photography in feature sections.
+Imagery is product-first and user-curated. The hero shows a large product preview frame in Charcoal (#151515) suggesting a dark-mode app interface. Partner logos are rendered in flat grayscale — no color, no depth, no backgrounds. The overall visual density is text-dominant: the 96px headline and 36px body copy occupy far more visual space than any imagery. When user content appears (bookmarks, mood boards), it is presented as raw crops on the Obsidian canvas without decorative frames or treatments.
 
 ## Layout
 
-Max-width 1200px centered content frame, with full-bleed sections (photo hero, dark cards, gradient washes) breaking out to viewport edges. The page model is a vertical stack of sections that alternate between white and mint-tint backgrounds, creating the cadence of a printed spread. The hero is a full-bleed dark photograph with left-aligned white headline overlay (not centered) and a single yellow CTA + ghost button stack positioned in the lower-left. Feature sections use a two-column pattern: large left-aligned heading with a 3-column card grid or single product mockup on the right. The stats band is a 3-column horizontal grid on a mint background with oversized numbers dominating. Navigation is a minimal top bar — text links left, three-button cluster right (ghost login, ghost demo, dark pill start trial) — with no sticky behavior on the hero. Section gaps are 80–120px, generous enough to feel editorial rather than dense.
+The page is centered single-column with a max content width around 1200px. The hero opens with a centered display headline, subtext, and single CTA — no split layout, no side imagery. Below the hero, a large product preview frame (Charcoal rectangle) occupies the full content width. A partner logo strip follows as a single horizontal row. Then large left-aligned editorial body text at 36px. Navigation is a floating text-only bar with no background fill. Sections are separated by 64-80px of pure Obsidian canvas — no dividers, no color bands. The rhythm is: massive centered type → large dark product frame → quiet logo strip → oversized prose → void.
 
 ## Agent Prompt Guide
 
 **Quick Color Reference**
-- text: #17150e (warm near-black)
-- background: #ffffff (canvas) / #f0f7f6 (tint sections)
-- border: 1.5px solid #17150e
-- accent: #cccc25 (Solar Yellow) — charts, metric chips, gradient washes
-- card surface: #f0f7f6 with 8px radius, no shadow
+- text: #fdfdfd
+- background: #050505
+- border: #e5e5e5
+No distinct primary action color was observed; use the extracted neutral button treatments instead of inventing a filled CTA color.
 - primary action: no distinct CTA color
 
 **Example Component Prompts**
-No distinct primary action color was observed; use the extracted neutral button treatments instead of inventing a filled CTA color.
 
-2. **Stat band**: Mint #f0f7f6 section background, 80px vertical padding. Three columns. Each column: display number at 96px Basel Classic weight 400, #17150e, line-height 0.95, letter-spacing -2.88px, with a superscript '+' in the same style. Caption beneath in Basel Grotesk 16px weight 500, #17150e.
 
-3. **Feature card with product mockup**: White section background. Card: #f0f7f6 fill, 8px radius, 24px padding, no shadow, no border. Contains a product screenshot filling 100% card width with 8px radius clip. Heading above card at 40px Basel Classic weight 400, #17150e.
+2. Create an editorial body section: #050505 background. Left-aligned prose at 36px Savee Font weight 400, #fdfdfd, line-height 1.13, letter-spacing -0.36px. Max-width 800px. No drop shadows, no card backgrounds — text sits directly on the void.
 
-4. **Ghost badge / eyebrow label**: Transparent fill, 1.5px solid #17150e border, 8px radius, 12px padding. Text in Basel Grotesk 16px weight 500, #17150e, letter-spacing 0.063em, uppercase optional.
+3. Create a product preview frame: #151515 background, 14px border-radius, full content width (max 1200px), no border, no shadow. Suggests a dark app interface screenshot.
 
-5. **Carousel navigation**: Two 40×40px square buttons flush-right of section heading. Transparent fill, 1.5px solid #17150e border, 8px radius, #17150e arrow glyph centered. Gap of 4px between arrows.
 
-## Editorial Cadence
+5. Create a partner logo strip: single horizontal row of 8 grayscale logos in #a3a3a3, evenly spaced across full content width. Preceded by a caption at 13px #737373 reading 'Used by leading design studios and teams'. No colored logos, no hover effects.
 
-The system's defining structural choice is the alternation of #ffffff and #f0f7f6 between sections — never two mint sections adjacent, never two white sections adjacent. This two-tone rhythm does the work that shadows, dividers, or vertical lines would do in a conventional product UI. When designing a new page, sketch the section backgrounds first as a binary pattern before placing any content. Dark (#17150e) sections should appear no more than once per full page scroll-depth and only for emphasis — the announcement bar, the footer, or a single dark feature card.
+## Radius Philosophy
 
-## Yellow Restraint
-
-Solar Yellow (#cccc25) is rationed. It appears as: (1) exactly one filled pill button in the hero, (2) inline metric chips inside product UI screenshots, (3) full-bleed gradient washes as section transitions, and (4) superscript '+' marks beside stat numbers. It should never appear as a link color, never as a heading color, never on a dark background, and never more than twice in a single viewport. The discipline is what makes it read as 'switched on' rather than decorative.
+The system uses exactly two radius values: 9999px for all interactive elements (buttons, tags, pills, inputs) creating a soft pill shape, and 14px for all passive surfaces (cards, product frames, preview containers). No 4px, no 8px, no 16px. The pill controls and the softly rounded cards together define the system's tactile language — buttons feel like physical pills you press, surfaces feel like slightly rounded frames. This binary radius vocabulary is as important as the color palette to the system's identity.
 
 ## Similar Brands
 
-- **Linear** — Same editorial-magazine approach to product UI: oversized display typography, near-monochrome palette with a single saturated accent, flat surfaces with no shadows, and tight letter-spacing on large sizes
-- **Arc Browser** — Shares the warm-near-black text (#17150 territory) against white, custom display serif/sans pairing, and confidence to let photography and typography do all the work without chrome
-- **Substack** — Same publisher-spread sensibility: large editorial headlines, tight line-heights, minimal UI chrome, and a restrained palette that treats the page as a reading surface
-- **Notion** — Pill-shaped buttons at extreme border-radius, gentle alternating surface tints, and flat card system with no shadows — though GlossGenius is far more typographically assertive
+- **Are.na** — Same near-black canvas, oversized editorial typography, single-color or minimal palette, text-dominant hero with no decorative imagery
+- **Linear** — Same dark-mode product UI with one vivid accent color (Linear uses #5e6ad2 indigo, Savee uses #1500ff), pill-shaped controls, tight line-heights, and surface color stepping instead of shadows
+- **Pitch** — Same confident use of large-scale display type (90px+) with tight tracking on dark backgrounds, minimal color, and generous vertical breathing room between sections
+- **VSCO** — Same dark gallery aesthetic for creative tools, pill-shaped CTAs, and the strategy of reserving color exclusively for the single most important action
+- **Things 3 (Cultured Code)** — Same near-black background, pure white type, single blue accent for primary action, pill controls, and the philosophy that restraint in color creates confidence in the product
 
 ## Quick Start
 
@@ -247,44 +220,46 @@ Solar Yellow (#cccc25) is rationed. It appears as: (1) exactly one filled pill b
 ```css
 :root {
   /* Colors */
-  --color-gloss-black: #17150e;
-  --color-gloss-white: #f0f7f6;
-  --color-pure-white: #ffffff;
-  --color-solar-yellow: #cccc25;
-  --gradient-solar-yellow: linear-gradient(180deg, #cccc25, #cacd78);
-  --color-soft-charcoal: #272b30;
-  --color-mid-grey: #949494;
-  --color-light-coral: #ff7780;
-  --color-apricot: #ffe5d6;
-  --color-apricot-glow: #ffb36a;
-  --color-lavender-mist: #c0c8f6;
-  --color-periwinkle-fade: #9fa6ff;
-  --gradient-periwinkle-fade: linear-gradient(180deg, #9fa6ff, #b3bae8);
+  --color-electric-indigo: #1500ff;
+  --color-obsidian: #050505;
+  --color-charcoal: #151515;
+  --color-graphite: #1e1e1e;
+  --color-paper: #fdfdfd;
+  --color-silver: #e5e5e5;
+  --color-pearl: #d4d4d4;
+  --color-slate: #2f2f2f;
+  --color-ash: #a3a3a3;
+  --color-stone: #737373;
 
   /* Typography — Font Families */
-  --font-basel-grotesk-book: 'Basel Grotesk Book', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-basel-classic-book: 'Basel Classic Book', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-savee-font: 'Savee Font', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
-  --text-caption: 14px;
-  --leading-caption: 1.4;
+  --text-caption: 13px;
+  --leading-caption: 1.5;
+  --tracking-caption: 0.195px;
   --text-body: 16px;
   --leading-body: 1.5;
-  --text-subheading: 22px;
-  --leading-subheading: 1.2;
-  --tracking-subheading: -0.44px;
-  --text-heading-sm: 32px;
-  --leading-heading-sm: 1.1;
-  --tracking-heading-sm: -0.64px;
-  --text-heading: 40px;
-  --leading-heading: 1;
-  --tracking-heading: -1.2px;
-  --text-heading-lg: 72px;
-  --leading-heading-lg: 0.97;
-  --tracking-heading-lg: -2.16px;
-  --text-display: 96px;
-  --leading-display: 0.95;
-  --tracking-display: -2.88px;
+  --tracking-body: 0.16px;
+  --text-body-lg: 18px;
+  --leading-body-lg: 1.38;
+  --text-subheading: 21px;
+  --leading-subheading: 1.33;
+  --text-heading-sm: 24px;
+  --leading-heading-sm: 1.29;
+  --tracking-heading-sm: -0.24px;
+  --text-heading: 30px;
+  --leading-heading: 1.25;
+  --tracking-heading: -0.3px;
+  --text-heading-lg: 36px;
+  --leading-heading-lg: 1.13;
+  --tracking-heading-lg: -0.36px;
+  --text-display: 60px;
+  --leading-display: 1;
+  --tracking-display: -1.2px;
+  --text-display-lg: 96px;
+  --leading-display-lg: 0.96;
+  --tracking-display-lg: -3.84px;
 
   /* Typography — Weights */
   --font-weight-regular: 400;
@@ -298,41 +273,35 @@ Solar Yellow (#cccc25) is rationed. It appears as: (1) exactly one filled pill b
   --spacing-16: 16px;
   --spacing-20: 20px;
   --spacing-24: 24px;
-  --spacing-28: 28px;
   --spacing-32: 32px;
-  --spacing-44: 44px;
+  --spacing-40: 40px;
   --spacing-48: 48px;
-  --spacing-56: 56px;
+  --spacing-64: 64px;
   --spacing-80: 80px;
   --spacing-96: 96px;
-  --spacing-120: 120px;
-  --spacing-228: 228px;
+  --spacing-128: 128px;
 
   /* Layout */
   --page-max-width: 1200px;
-  --section-gap: 80px;
+  --section-gap: 64px;
   --card-padding: 24px;
-  --element-gap: 16px;
+  --element-gap: 12px;
 
   /* Border Radius */
-  --radius-lg: 8px;
-  --radius-2xl: 16px;
-  --radius-3xl: 24px;
-  --radius-full: 1440px;
+  --radius-xl: 14px;
+  --radius-full: 9999px;
 
   /* Named Radii */
-  --radius-cards: 8px;
-  --radius-badges: 8px;
-  --radius-inputs: 12px;
-  --radius-buttons: 1440px;
-  --radius-containers: 24px;
-  --radius-largecards: 16px;
+  --radius-tags: 9999px;
+  --radius-cards: 14px;
+  --radius-pills: 9999px;
+  --radius-inputs: 9999px;
+  --radius-buttons: 9999px;
 
   /* Surfaces */
-  --surface-canvas: #ffffff;
-  --surface-tint: #f0f7f6;
-  --surface-ink: #17150;
-  --surface-highlight: #cccc25;
+  --surface-canvas: #050505;
+  --surface-elevated-panel: #151515;
+  --surface-deep-overlay: #1e1e1;
 }
 ```
 
@@ -341,42 +310,46 @@ Solar Yellow (#cccc25) is rationed. It appears as: (1) exactly one filled pill b
 ```css
 @theme {
   /* Colors */
-  --color-gloss-black: #17150e;
-  --color-gloss-white: #f0f7f6;
-  --color-pure-white: #ffffff;
-  --color-solar-yellow: #cccc25;
-  --color-soft-charcoal: #272b30;
-  --color-mid-grey: #949494;
-  --color-light-coral: #ff7780;
-  --color-apricot: #ffe5d6;
-  --color-apricot-glow: #ffb36a;
-  --color-lavender-mist: #c0c8f6;
-  --color-periwinkle-fade: #9fa6ff;
+  --color-electric-indigo: #1500ff;
+  --color-obsidian: #050505;
+  --color-charcoal: #151515;
+  --color-graphite: #1e1e1e;
+  --color-paper: #fdfdfd;
+  --color-silver: #e5e5e5;
+  --color-pearl: #d4d4d4;
+  --color-slate: #2f2f2f;
+  --color-ash: #a3a3a3;
+  --color-stone: #737373;
 
   /* Typography */
-  --font-basel-grotesk-book: 'Basel Grotesk Book', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-basel-classic-book: 'Basel Classic Book', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-savee-font: 'Savee Font', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
   /* Typography — Scale */
-  --text-caption: 14px;
-  --leading-caption: 1.4;
+  --text-caption: 13px;
+  --leading-caption: 1.5;
+  --tracking-caption: 0.195px;
   --text-body: 16px;
   --leading-body: 1.5;
-  --text-subheading: 22px;
-  --leading-subheading: 1.2;
-  --tracking-subheading: -0.44px;
-  --text-heading-sm: 32px;
-  --leading-heading-sm: 1.1;
-  --tracking-heading-sm: -0.64px;
-  --text-heading: 40px;
-  --leading-heading: 1;
-  --tracking-heading: -1.2px;
-  --text-heading-lg: 72px;
-  --leading-heading-lg: 0.97;
-  --tracking-heading-lg: -2.16px;
-  --text-display: 96px;
-  --leading-display: 0.95;
-  --tracking-display: -2.88px;
+  --tracking-body: 0.16px;
+  --text-body-lg: 18px;
+  --leading-body-lg: 1.38;
+  --text-subheading: 21px;
+  --leading-subheading: 1.33;
+  --text-heading-sm: 24px;
+  --leading-heading-sm: 1.29;
+  --tracking-heading-sm: -0.24px;
+  --text-heading: 30px;
+  --leading-heading: 1.25;
+  --tracking-heading: -0.3px;
+  --text-heading-lg: 36px;
+  --leading-heading-lg: 1.13;
+  --tracking-heading-lg: -0.36px;
+  --text-display: 60px;
+  --leading-display: 1;
+  --tracking-display: -1.2px;
+  --text-display-lg: 96px;
+  --leading-display-lg: 0.96;
+  --tracking-display-lg: -3.84px;
 
   /* Spacing */
   --spacing-4: 4px;
@@ -385,20 +358,16 @@ Solar Yellow (#cccc25) is rationed. It appears as: (1) exactly one filled pill b
   --spacing-16: 16px;
   --spacing-20: 20px;
   --spacing-24: 24px;
-  --spacing-28: 28px;
   --spacing-32: 32px;
-  --spacing-44: 44px;
+  --spacing-40: 40px;
   --spacing-48: 48px;
-  --spacing-56: 56px;
+  --spacing-64: 64px;
   --spacing-80: 80px;
   --spacing-96: 96px;
-  --spacing-120: 120px;
-  --spacing-228: 228px;
+  --spacing-128: 128px;
 
   /* Border Radius */
-  --radius-lg: 8px;
-  --radius-2xl: 16px;
-  --radius-3xl: 24px;
-  --radius-full: 1440px;
+  --radius-xl: 14px;
+  --radius-full: 9999px;
 }
 ```

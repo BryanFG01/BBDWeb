@@ -4,11 +4,11 @@ import { contactContent } from "@/domain/contact/contactContent";
 
 export function Footer() {
   return (
-    <footer className="bg-gloss-black py-16">
+    <footer className="border-t border-slate bg-obsidian py-20">
       <div className="mx-auto flex max-w-[1200px] flex-col gap-10 px-6 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-center gap-2.5">
           <img src={logoIcon} alt="BBD web" className="h-9 w-9 object-contain" />
-          <span className="font-grotesk text-[16px] font-medium tracking-tight text-pure-white">BBD web</span>
+          <span className="font-savee text-[16px] font-medium tracking-tight text-paper">BBD web</span>
         </div>
 
         <nav className="flex flex-wrap gap-x-6 gap-y-2">
@@ -16,7 +16,7 @@ export function Footer() {
             <a
               key={link.href}
               href={link.href}
-              className="font-grotesk text-[16px] font-medium text-gloss-white/70 transition-colors hover:text-pure-white"
+              className="font-savee text-[16px] font-normal text-pearl transition-colors hover:text-paper"
             >
               {link.label}
             </a>
@@ -25,13 +25,13 @@ export function Footer() {
 
         <a
           href={`mailto:${contactContent.email}`}
-          className="font-grotesk text-[16px] font-medium text-pure-white transition-colors hover:text-gloss-white/70"
+          className="font-savee text-[16px] font-normal text-paper transition-colors hover:text-pearl"
         >
           {contactContent.email}
         </a>
       </div>
 
-      <p className="mt-12 text-center font-grotesk text-[14px] text-mid-grey">
+      <p className="mt-12 text-center font-savee text-[13px] text-stone">
         © 2026 BBD web. Todos los derechos reservados.
       </p>
     </footer>

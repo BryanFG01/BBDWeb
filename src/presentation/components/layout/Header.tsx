@@ -7,7 +7,7 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-[1200px] items-center justify-between px-6">
         <a href="#" className="flex items-center gap-2.5">
           <img src={logoIcon} alt="BBD web" className="h-9 w-9 object-contain" />
-          <span className="font-grotesk text-[16px] font-medium tracking-tight text-pure-white">BBD web</span>
+          <span className="font-savee text-[16px] font-medium tracking-tight text-paper">BBD web</span>
         </a>
 
         <nav className="hidden items-center gap-2 md:flex">
@@ -15,7 +15,7 @@ export function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-lg px-2 py-1 font-grotesk text-[16px] font-medium text-pure-white transition-colors hover:text-gloss-white/70"
+              className="rounded-full px-2 py-1 font-savee text-[14px] font-normal text-pearl transition-colors hover:text-paper"
             >
               {link.label}
             </a>
@@ -24,7 +24,7 @@ export function Header() {
 
         <a
           href="#contacto"
-          className="inline-flex h-11 items-center justify-center rounded-full border-[1.5px] border-pure-white px-6 font-grotesk text-[16px] font-medium text-pure-white transition-colors hover:bg-pure-white/10"
+          className="inline-flex items-center justify-center rounded-full border border-paper px-5 py-2.5 font-savee text-[14px] font-medium text-paper transition-colors hover:bg-paper/10"
         >
           Contáctanos
         </a>

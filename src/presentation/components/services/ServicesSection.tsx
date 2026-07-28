@@ -4,10 +4,10 @@ import { ServiceCard } from "./ServiceCard";
 
 export function ServicesSection() {
   return (
-    <section id="servicios" className="bg-pure-white py-20 lg:py-28">
+    <section id="servicios" className="bg-obsidian py-16 lg:py-20">
       <div className="mx-auto max-w-[1200px] px-6">
         <GhostBadge>{servicesContent.eyebrow}</GhostBadge>
-        <h2 className="font-classic mt-5 max-w-xl text-[32px] leading-[1.1] font-normal tracking-[-0.03em] text-gloss-black lg:text-[40px]">
+        <h2 className="font-savee mt-5 max-w-xl text-[30px] leading-[1.13] font-medium tracking-[-0.02em] text-paper sm:text-[36px]">
           {servicesContent.heading}
         </h2>
 

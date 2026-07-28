@@ -9,5 +9,4 @@ export const heroContent: HeroContent = {
     { label: "Hablemos de tu proyecto", href: "#contacto", variant: "yellow" },
     { label: "Ver proyectos", href: "#proyectos", variant: "ghost" },
   ],
-  videoSrc: "/videos/hero-demo.mp4",
 };

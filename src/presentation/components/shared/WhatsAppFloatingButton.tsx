@@ -16,7 +16,7 @@ export function WhatsAppFloatingButton() {
       target="_blank"
       rel="noreferrer"
       aria-label="Escríbenos por WhatsApp"
-      className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-pure-white shadow-[0_4px_12px_rgba(23,21,14,0.25)] transition-transform hover:scale-105"
+      className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-paper shadow-[0_4px_12px_rgba(0,0,0,0.4)] transition-transform hover:scale-105"
     >
       <WhatsAppIcon />
     </a>

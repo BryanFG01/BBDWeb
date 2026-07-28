@@ -1,18 +1,15 @@
 import { capabilities, projectsContent } from "@/domain/projects/projectsContent";
 import { GhostBadge } from "@/presentation/components/shared/GhostBadge";
-import { ProjectsMascot } from "./ProjectsMascot";
 
 export function ProjectsSection() {
   return (
-    <section id="proyectos" className="relative overflow-hidden bg-gloss-white py-20 lg:py-28">
-      <ProjectsMascot />
-
-      <div className="relative mx-auto max-w-[1200px] px-6">
+    <section id="proyectos" className="bg-obsidian py-16 lg:py-20">
+      <div className="mx-auto max-w-[1200px] px-6">
         <GhostBadge>{projectsContent.eyebrow}</GhostBadge>
-        <h2 className="font-classic mt-5 max-w-xl text-[32px] leading-[1.1] font-normal tracking-[-0.03em] text-gloss-black lg:text-[40px]">
+        <h2 className="font-savee mt-5 max-w-xl text-[30px] leading-[1.13] font-medium tracking-[-0.02em] text-paper sm:text-[36px]">
           {projectsContent.heading}
         </h2>
-        <p className="mt-4 max-w-xl font-grotesk text-[16px] leading-[1.5] text-gloss-black/70">
+        <p className="mt-4 max-w-xl font-savee text-[16px] leading-[1.5] font-normal text-pearl">
           {projectsContent.description}
         </p>
 
@@ -20,7 +17,7 @@ export function ProjectsSection() {
           {capabilities.map((capability) => (
             <span
               key={capability}
-              className="rounded-lg bg-pure-white px-4 py-2 font-grotesk text-[16px] font-medium text-gloss-black"
+              className="rounded-full bg-charcoal px-4 py-2 font-savee text-[14px] font-medium text-paper"
             >
               {capability}
             </span>

@@ -11,5 +11,4 @@ export interface HeroContent {
   headline: string;
   subheadline: string;
   ctas: HeroCta[];
-  videoSrc: string;
 }

@@ -2,51 +2,23 @@ import { useRef } from "react";
 import { heroContent } from "@/domain/hero/heroContent";
 import { useHeroAnimations } from "@/application/hooks/useHeroAnimations";
 import { usePrefersReducedMotion } from "@/application/hooks/usePrefersReducedMotion";
-import { useInViewport } from "@/application/hooks/useInViewport";
-import { useVideoAutoplay } from "@/application/hooks/useVideoAutoplay";
 
 export function HeroSection() {
   const rootRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const { ref: viewportRef, isInView } = useInViewport<HTMLElement>(0.15);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   useHeroAnimations(rootRef, prefersReducedMotion);
-  useVideoAutoplay(videoRef, isInView, prefersReducedMotion);
 
   return (
-    <section
-      ref={(node) => {
-        rootRef.current = node;
-        viewportRef.current = node;
-      }}
-      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-gloss-black"
-    >
-      <video
-        ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
-        muted
-        loop
-        playsInline
-        preload="auto"
-        aria-hidden="true"
-      >
-        <source src={heroContent.videoSrc} type="video/mp4" />
-      </video>
+    <section ref={rootRef} className="relative overflow-hidden bg-obsidian pt-32 pb-16 lg:pb-20">
+      <div className="pointer-events-none absolute -top-32 left-1/2 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-electric-indigo/20 blur-3xl" />
 
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(180deg, rgba(23,21,14,0.6) 0%, rgba(23,21,14,0.4) 30%, rgba(23,21,14,0.9) 100%)",
-        }}
-      />
-
-      <div className="relative z-10 mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-end px-6 pt-20 pb-16 sm:pt-32 sm:pb-20">
-        <span className="hero-fade-up opacity-100 motion-safe:opacity-0 inline-flex w-fit items-center rounded-lg border-[1.5px] border-pure-white/70 px-3 py-1.5 font-grotesk text-[14px] font-medium text-pure-white">
+      <div className="relative mx-auto max-w-3xl px-6 text-center">
+        <span className="hero-fade-up opacity-100 motion-safe:opacity-0 inline-flex w-fit items-center rounded-full border border-pearl/30 px-3 py-1.5 font-savee text-[13px] font-normal text-pearl">
           {heroContent.eyebrow}
         </span>
 
-        <h1 className="font-classic mt-6 max-w-3xl text-[40px] leading-[0.95] font-normal tracking-[-0.03em] text-pure-white sm:text-[56px] lg:text-[72px]">
+        <h1 className="font-savee mx-auto mt-6 max-w-2xl text-[44px] leading-[0.96] font-medium tracking-[-0.02em] text-paper sm:text-[64px] lg:text-[80px] lg:tracking-[-0.04em]">
           {heroContent.headline.split(" ").map((word, index) => (
             <span
               key={`${word}-${index}`}
@@ -57,19 +29,19 @@ export function HeroSection() {
           ))}
         </h1>
 
-        <p className="hero-fade-up opacity-100 motion-safe:opacity-0 mt-6 max-w-xl font-grotesk text-[16px] leading-[1.5] text-pure-white/80">
+        <p className="hero-fade-up opacity-100 motion-safe:opacity-0 mx-auto mt-6 max-w-xl font-savee text-[16px] leading-[1.5] font-normal text-pearl sm:text-[18px]">
           {heroContent.subheadline}
         </p>
 
-        <div className="hero-fade-up opacity-100 motion-safe:opacity-0 mt-10 flex flex-col gap-3 sm:flex-row">
+        <div className="hero-fade-up opacity-100 motion-safe:opacity-0 mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           {heroContent.ctas.map((cta) => (
             <a
               key={cta.href}
               href={cta.href}
               className={
                 cta.variant === "yellow"
-                  ? "inline-flex h-12 items-center justify-center rounded-full bg-solar-yellow px-6 font-grotesk text-[16px] font-medium text-gloss-black transition-opacity hover:opacity-90"
-                  : "inline-flex h-12 items-center justify-center rounded-full border-[1.5px] border-pure-white px-6 font-grotesk text-[16px] font-medium text-pure-white transition-colors hover:bg-pure-white/10"
+                  ? "inline-flex h-12 items-center justify-center rounded-full bg-electric-indigo px-6 font-savee text-[16px] font-medium text-paper transition-opacity hover:opacity-90"
+                  : "inline-flex h-12 items-center justify-center rounded-full border border-paper px-6 font-savee text-[16px] font-medium text-paper transition-colors hover:bg-paper/10"
               }
             >
               {cta.label}
