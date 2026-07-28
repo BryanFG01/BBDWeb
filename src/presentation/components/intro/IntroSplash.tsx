@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { animate } from "animejs";
 import { introContent } from "@/domain/intro/introContent";
 import { usePrefersReducedMotion } from "@/application/hooks/usePrefersReducedMotion";
+import { AmbientGlow } from "@/presentation/components/shared/AmbientGlow";
 
 interface IntroSplashProps {
   onDismiss: () => void;
@@ -64,7 +65,7 @@ export function IntroSplash({ onDismiss }: IntroSplashProps) {
       ref={containerRef}
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-4 overflow-hidden bg-obsidian px-6 text-center"
     >
-      <div className="pointer-events-none absolute top-1/2 left-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-electric-indigo/20 blur-3xl" />
+      <AmbientGlow className="top-1/2 left-1/2 h-[32rem] w-[32rem] -mt-64 -ml-64" />
 
       <video
         className="intro-video pointer-events-none relative h-64 w-64 object-contain opacity-100 motion-safe:opacity-0 sm:h-80 sm:w-80"

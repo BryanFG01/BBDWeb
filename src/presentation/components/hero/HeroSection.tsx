@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { heroContent } from "@/domain/hero/heroContent";
 import { useHeroAnimations } from "@/application/hooks/useHeroAnimations";
 import { usePrefersReducedMotion } from "@/application/hooks/usePrefersReducedMotion";
+import { AmbientGlow } from "@/presentation/components/shared/AmbientGlow";
 
 export function HeroSection() {
   const rootRef = useRef<HTMLElement>(null);
@@ -11,7 +12,7 @@ export function HeroSection() {
 
   return (
     <section ref={rootRef} className="relative overflow-hidden bg-obsidian pt-32 pb-16 lg:pb-20">
-      <div className="pointer-events-none absolute -top-32 left-1/2 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-electric-indigo/20 blur-3xl" />
+      <AmbientGlow className="-top-32 left-1/2 h-[32rem] w-[32rem] -ml-64" />
 
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <span className="hero-fade-up opacity-100 motion-safe:opacity-0 inline-flex w-fit items-center rounded-full border border-pearl/30 px-3 py-1.5 font-savee text-[13px] font-normal text-pearl">
