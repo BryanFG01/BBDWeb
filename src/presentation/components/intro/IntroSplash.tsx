@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { animate } from "animejs";
 import { introContent } from "@/domain/intro/introContent";
+import { useBodyScrollLock } from "@/application/hooks/useBodyScrollLock";
 import { usePrefersReducedMotion } from "@/application/hooks/usePrefersReducedMotion";
 import { AmbientGlow } from "@/presentation/components/shared/AmbientGlow";
 
@@ -13,13 +14,7 @@ export function IntroSplash({ onDismiss }: IntroSplashProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
   const [isExiting, setIsExiting] = useState(false);
 
-  useEffect(() => {
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, []);
+  useBodyScrollLock(true);
 
   useEffect(() => {
     if (prefersReducedMotion) return;

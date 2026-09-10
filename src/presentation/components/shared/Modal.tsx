@@ -1,5 +1,8 @@
-import { useEffect, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { X } from "lucide-react";
+import { useBodyScrollLock } from "@/application/hooks/useBodyScrollLock";
+import { useEscapeKey } from "@/application/hooks/useEscapeKey";
+import { useMountTransition } from "@/application/hooks/useMountTransition";
 import { usePrefersReducedMotion } from "@/application/hooks/usePrefersReducedMotion";
 
 interface ModalProps {
@@ -14,41 +17,10 @@ const TRANSITION_MS = 200;
 
 export function Modal({ isOpen, onClose, labelledBy, header, children }: ModalProps) {
   const prefersReducedMotion = usePrefersReducedMotion();
-  const [isMounted, setIsMounted] = useState(isOpen);
-  const [isVisible, setIsVisible] = useState(false);
+  const { isMounted, isVisible } = useMountTransition(isOpen, TRANSITION_MS, prefersReducedMotion);
 
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-      const frame = requestAnimationFrame(() => setIsVisible(true));
-      return () => cancelAnimationFrame(frame);
-    }
-
-    setIsVisible(false);
-    if (prefersReducedMotion) {
-      setIsMounted(false);
-      return;
-    }
-    const timeout = setTimeout(() => setIsMounted(false), TRANSITION_MS);
-    return () => clearTimeout(timeout);
-  }, [isOpen, prefersReducedMotion]);
-
-  useEffect(() => {
-    if (!isMounted) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [isMounted, onClose]);
+  useEscapeKey(onClose, isMounted);
+  useBodyScrollLock(isMounted);
 
   if (!isMounted) return null;
 
