@@ -8,7 +8,7 @@ export function MethodologySection() {
 
   return (
     <section id="metodologia" className="bg-obsidian py-16 lg:py-20">
-      <div className="mx-auto max-w-[1200px] px-6">
+      <div data-reveal-group className="mx-auto max-w-[1200px] px-6">
         <GhostBadge>{methodologyContent.eyebrow}</GhostBadge>
         <h2 className="font-savee mt-5 max-w-xl text-[30px] leading-[1.13] font-medium tracking-[-0.02em] text-paper sm:text-[36px]">
           {methodologyContent.heading}

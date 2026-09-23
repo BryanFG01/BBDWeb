@@ -1,3 +1,6 @@
+import { useRef } from "react";
+import { useScrollReveal } from "@/application/hooks/useScrollReveal";
+import { usePrefersReducedMotion } from "@/application/hooks/usePrefersReducedMotion";
 import { Header } from "@/presentation/components/layout/Header";
 import { Footer } from "@/presentation/components/layout/Footer";
 import { HeroSection } from "@/presentation/components/hero/HeroSection";
@@ -15,8 +18,13 @@ interface LandingPageProps {
 }
 
 export function LandingPage({ introDismissed }: LandingPageProps) {
+  const rootRef = useRef<HTMLElement>(null);
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  useScrollReveal(rootRef, prefersReducedMotion);
+
   return (
-    <main>
+    <main ref={rootRef}>
       <Header />
       <HeroSection playEntrance={introDismissed} />
       <StatsSection />

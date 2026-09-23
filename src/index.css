@@ -50,6 +50,12 @@ body {
   html {
     scroll-behavior: smooth;
   }
+
+  /* Scroll-reveal targets stay hidden until useScrollReveal marks them revealed. */
+  [data-reveal]:not([data-revealed]),
+  [data-reveal-group] > :not([data-reveal-group]):not([data-revealed]) {
+    opacity: 0;
+  }
 }
 
 /* Thin, near-invisible scrollbar that turns emerald on hover — used inside modals. */

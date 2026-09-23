@@ -4,7 +4,7 @@ import { GhostBadge } from "@/presentation/components/shared/GhostBadge";
 export function ContactSection() {
   return (
     <section id="contacto" className="bg-obsidian py-16 lg:py-20">
-      <div className="mx-auto max-w-[1200px] px-6 text-center">
+      <div data-reveal-group className="mx-auto max-w-[1200px] px-6 text-center">
         <div className="mx-auto flex w-fit">
           <GhostBadge>{contactContent.eyebrow}</GhostBadge>
         </div>
