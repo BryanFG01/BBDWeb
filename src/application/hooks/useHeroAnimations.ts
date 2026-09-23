@@ -7,13 +7,14 @@ const defaultAnimationPort = createAnimejsHeroAnimationAdapter();
 export function useHeroAnimations(
   rootRef: RefObject<HTMLElement | null>,
   prefersReducedMotion: boolean,
+  enabled: boolean,
   animationPort: HeroAnimationPort = defaultAnimationPort,
 ) {
   useEffect(() => {
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion || !enabled) return;
     const root = rootRef.current;
     if (!root) return;
 
     return animationPort.mount(root);
-  }, [rootRef, prefersReducedMotion, animationPort]);
+  }, [rootRef, prefersReducedMotion, enabled, animationPort]);
 }

@@ -1,4 +1,3 @@
-import logoIcon from "@/assets/logo-icon.png";
 import { navLinks } from "@/domain/nav/navContent";
 import { contactContent } from "@/domain/contact/contactContent";
 
@@ -7,7 +6,7 @@ export function Footer() {
     <footer className="border-t border-slate bg-obsidian py-20">
       <div className="mx-auto flex max-w-[1200px] flex-col gap-10 px-6 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-center gap-2.5">
-          <img src={logoIcon} alt="BBD web" className="h-9 w-9 object-contain" />
+          <img src="/images/Nuevo-Logo.jpg" alt="BBD web" className="h-9 w-auto object-contain" />
           <span className="font-savee text-[16px] font-medium tracking-tight text-paper">BBD web</span>
         </div>
 

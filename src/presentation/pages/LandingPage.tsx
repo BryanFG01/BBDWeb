@@ -9,11 +9,16 @@ import { AboutSection } from "@/presentation/components/about/AboutSection";
 import { ContactSection } from "@/presentation/components/contact/ContactSection";
 import { WhatsAppFloatingButton } from "@/presentation/components/shared/WhatsAppFloatingButton";
 
-export function LandingPage() {
+interface LandingPageProps {
+  /** The hero entrance waits for the intro splash to close so it plays in view. */
+  introDismissed: boolean;
+}
+
+export function LandingPage({ introDismissed }: LandingPageProps) {
   return (
     <main>
       <Header />
-      <HeroSection />
+      <HeroSection playEntrance={introDismissed} />
       <StatsSection />
       <ServicesSection />
       <ProjectsSection />

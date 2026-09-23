@@ -1,4 +1,3 @@
-import logoIcon from "@/assets/logo-icon.png";
 import { navLinks } from "@/domain/nav/navContent";
 
 export function Header() {
@@ -6,7 +5,7 @@ export function Header() {
     <header className="absolute inset-x-0 top-0 z-30 pt-6">
       <div className="mx-auto flex h-20 max-w-[1200px] items-center justify-between px-6">
         <a href="#" className="flex items-center gap-2.5">
-          <img src={logoIcon} alt="BBD web" className="h-9 w-9 object-contain" />
+          <img src="/images/Nuevo-Logo.jpg" alt="BBD web" className="h-9 w-auto object-contain" />
           <span className="font-savee text-[16px] font-medium tracking-tight text-paper">BBD web</span>
         </a>
 

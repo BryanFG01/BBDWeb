@@ -4,11 +4,15 @@ import { useHeroAnimations } from "@/application/hooks/useHeroAnimations";
 import { usePrefersReducedMotion } from "@/application/hooks/usePrefersReducedMotion";
 import { AmbientGlow } from "@/presentation/components/shared/AmbientGlow";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  playEntrance: boolean;
+}
+
+export function HeroSection({ playEntrance }: HeroSectionProps) {
   const rootRef = useRef<HTMLElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  useHeroAnimations(rootRef, prefersReducedMotion);
+  useHeroAnimations(rootRef, prefersReducedMotion, playEntrance);
 
   return (
     <section ref={rootRef} className="relative overflow-hidden bg-obsidian pt-32 pb-16 lg:pb-20">
