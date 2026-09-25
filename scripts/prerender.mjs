@@ -24,7 +24,10 @@ async function prerender() {
 
   const browser = await chromium.launch();
   try {
-    const page = await browser.newPage();
+    // Reduced motion skips the scroll-reveal/hero animations, so the snapshot
+    // doesn't capture elements frozen mid-animation with inline `opacity: 0`
+    // (which would leave the crawler-facing text hidden).
+    const page = await browser.newPage({ reducedMotion: "reduce" });
     await page.goto(url, { waitUntil: "networkidle" });
 
     // The intro splash is a fixed overlay — <LandingPage> underneath always
