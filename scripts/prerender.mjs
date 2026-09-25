@@ -1,56 +1,43 @@
-// Post-build step: renders the built SPA in a headless browser and writes the
-// fully-rendered HTML back into dist/index.html. This gives crawlers (and
-// social-link previews) real text content immediately, instead of the empty
+// Post-build step: renders the React app to static HTML with react-dom/server
+// and injects it into dist/index.html. This gives crawlers (and social-link
+// previews) real text content immediately, instead of the empty
 // `<div id="root"></div>` shell that `vite build` produces on its own.
+//
+// No headless browser is involved, so it works on any build host (Vercel
+// included). Animations only run in effects, so the output has no inline
+// `opacity: 0` styles frozen mid-animation.
 //
 // Real visitors still get the interactive React app — main.tsx re-renders
 // into #root on load, so this only changes what the *first* HTML response
 // contains, not the runtime behavior.
 //
-// Failures here must never fail the whole build: if the browser can't launch
-// or anything goes wrong, we log a warning and leave dist/index.html as-is.
-import { writeFile } from "node:fs/promises";
+// If rendering fails, the build fails loudly: shipping an empty page to
+// crawlers silently is worse than a failed deploy.
+import { readFile, writeFile, rm } from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { preview } from "vite";
-import { chromium } from "playwright";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { build } from "vite";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const distIndexPath = path.resolve(__dirname, "../dist/index.html");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const distIndexPath = path.join(root, "dist/index.html");
+const ssrOutDir = path.join(root, "dist-ssr");
 
-async function prerender() {
-  const server = await preview({ preview: { port: 4173, strictPort: false } });
-  const url = server.resolvedUrls?.local?.[0] ?? `http://localhost:${server.config.preview.port}/`;
+await build({
+  root,
+  logLevel: "warn",
+  build: { ssr: "src/entry-server.tsx", outDir: ssrOutDir, emptyOutDir: true },
+});
 
-  const browser = await chromium.launch();
-  try {
-    // Reduced motion skips the scroll-reveal/hero animations, so the snapshot
-    // doesn't capture elements frozen mid-animation with inline `opacity: 0`
-    // (which would leave the crawler-facing text hidden).
-    const page = await browser.newPage({ reducedMotion: "reduce" });
-    await page.goto(url, { waitUntil: "networkidle" });
+const { render } = await import(pathToFileURL(path.join(ssrOutDir, "entry-server.js")).href);
+const appHtml = render();
 
-    // The intro splash is a fixed overlay — <LandingPage> underneath always
-    // renders regardless of its state, so the real content is already in the
-    // DOM here. No need to interact with the page before capturing it.
-    await page
-      .locator("#servicios")
-      .waitFor({ state: "attached", timeout: 5000 })
-      .catch(() => {});
-    await page.waitForTimeout(300);
-
-    const html = await page.content();
-    await writeFile(distIndexPath, html, "utf-8");
-    console.log("[prerender] dist/index.html actualizado con el contenido renderizado.");
-  } finally {
-    await browser.close();
-    await new Promise((resolve) => server.httpServer.close(resolve));
-  }
+const template = await readFile(distIndexPath, "utf-8");
+const placeholder = '<div id="root"></div>';
+if (!template.includes(placeholder)) {
+  throw new Error(`[prerender] No se encontró ${placeholder} en dist/index.html`);
 }
 
-prerender()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.warn("[prerender] Se omitió el prerenderizado (no bloquea el build):", error.message);
-    process.exit(0);
-  });
+await writeFile(distIndexPath, template.replace(placeholder, `<div id="root">${appHtml}</div>`), "utf-8");
+await rm(ssrOutDir, { recursive: true, force: true });
+
+console.log("[prerender] dist/index.html actualizado con el contenido renderizado.");
