@@ -80,9 +80,9 @@ export function IntroSplash({ onDismiss }: IntroSplashProps) {
       </video>
 
       <div className="intro-copy opacity-100 motion-safe:opacity-0 relative">
-        <h1 className="font-savee text-[30px] leading-[1.13] font-medium tracking-[-0.02em] text-paper sm:text-[36px]">
+        <p className="font-savee text-[30px] leading-[1.13] font-medium tracking-[-0.02em] text-paper sm:text-[36px]">
           {introContent.heading}
-        </h1>
+        </p>
         <p className="mt-2 font-savee text-[16px] font-normal text-pearl">{introContent.subheading}</p>
       </div>
 

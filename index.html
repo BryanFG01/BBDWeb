@@ -2,16 +2,23 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/images/Nuevo-Logo.jpg" />
+    <link rel="icon" href="/favicon.ico?v=2" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon.png?v=2" sizes="512x512" />
+    <link rel="icon" type="image/png" href="/icon-192.png?v=2" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://www.bbdweb.cloud/" />
 
-    <title>BBD web — Estudio de software a medida | Facturación, ERP, E-commerce, Landing Pages</title>
+    <title>BBD web | Software a medida, facturación y ERP en Colombia</title>
     <meta
       name="description"
-      content="BBD web es un estudio de software a medida: sistemas de facturación electrónica, ERP, e-commerce, apps móviles y landing pages, construidos y en producción para negocios reales."
+      content="BBD web es un estudio de software a medida en Colombia: sistemas de facturación electrónica, ERP, e-commerce, apps móviles y landing pages para negocios reales."
     />
+    <meta name="author" content="BBD web" />
+    <meta name="application-name" content="BBD web" />
+    <meta name="apple-mobile-web-app-title" content="BBD web" />
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
@@ -23,22 +30,67 @@
       property="og:description"
       content="Sistemas de facturación electrónica, ERP, e-commerce, apps móviles y landing pages — construidos a la medida y en producción."
     />
-    <meta property="og:image" content="https://www.bbdweb.cloud/images/Nuevo-Logo.jpg" />
+    <meta property="og:image" content="https://www.bbdweb.cloud/images/og-image.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:width" content="691" />
-    <meta property="og:image:height" content="361" />
-    <meta property="og:image:alt" content="Logo de BBD web" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Logo de BBD web: camaleón geométrico" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="BBD web — Estudio de software a medida" />
     <meta
       name="twitter:description"
       content="Sistemas de facturación electrónica, ERP, e-commerce, apps móviles y landing pages — construidos a la medida y en producción."
     />
-    <meta name="twitter:image" content="https://www.bbdweb.cloud/images/Nuevo-Logo.jpg" />
+    <meta name="twitter:image" content="https://www.bbdweb.cloud/images/og-image.jpg" />
 
     <meta name="theme-color" content="#050505" />
+
+    <!-- Datos estructurados: nombre del sitio y logo en los resultados de Google -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.bbdweb.cloud/#website",
+            "url": "https://www.bbdweb.cloud/",
+            "name": "BBD web",
+            "alternateName": ["BBDweb", "bbdweb.cloud"],
+            "inLanguage": "es-CO",
+            "publisher": { "@id": "https://www.bbdweb.cloud/#organization" }
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://www.bbdweb.cloud/#organization",
+            "name": "BBD web",
+            "url": "https://www.bbdweb.cloud/",
+            "logo": "https://www.bbdweb.cloud/favicon.png",
+            "image": "https://www.bbdweb.cloud/images/og-image.jpg",
+            "description": "Estudio de software a medida: sistemas de facturación electrónica, ERP, e-commerce, apps móviles y landing pages.",
+            "email": "Bryanfg1013@gmail.com",
+            "telephone": "+573004309200",
+            "areaServed": { "@type": "Country", "name": "Colombia" },
+            "address": { "@type": "PostalAddress", "addressCountry": "CO" },
+            "knowsAbout": [
+              "Software a medida",
+              "Facturación electrónica",
+              "ERP",
+              "E-commerce",
+              "Aplicaciones móviles",
+              "Landing pages"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+573004309200",
+              "contactType": "sales",
+              "availableLanguage": "Spanish"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
