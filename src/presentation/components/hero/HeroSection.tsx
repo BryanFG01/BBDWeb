@@ -3,6 +3,7 @@ import { heroContent } from "@/domain/hero/heroContent";
 import { useHeroAnimations } from "@/application/hooks/useHeroAnimations";
 import { usePrefersReducedMotion } from "@/application/hooks/usePrefersReducedMotion";
 import { AmbientGlow } from "@/presentation/components/shared/AmbientGlow";
+import { HeroFloatingCards } from "./HeroFloatingCards";
 
 interface HeroSectionProps {
   playEntrance: boolean;
@@ -15,10 +16,16 @@ export function HeroSection({ playEntrance }: HeroSectionProps) {
   useHeroAnimations(rootRef, prefersReducedMotion, playEntrance);
 
   return (
-    <section ref={rootRef} className="relative overflow-hidden bg-obsidian pt-32 pb-16 lg:pb-20">
+    <section ref={rootRef} className="relative overflow-hidden bg-obsidian pt-32 pb-16 lg:pt-40 lg:pb-32">
       <AmbientGlow className="-top-32 left-1/2 h-[32rem] w-[32rem] -ml-64" />
+      <HeroFloatingCards />
 
-      <div className="relative mx-auto max-w-3xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+        {/* Dark halo so the headline stays legible over any card drifting behind it. */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 scale-125 bg-[radial-gradient(closest-side,rgb(5_5_5/0.9),transparent)]"
+        />
         <span className="hero-fade-up opacity-100 motion-safe:opacity-0 inline-flex w-fit items-center rounded-full border border-pearl/30 px-3 py-1.5 font-savee text-[13px] font-normal text-pearl">
           {heroContent.eyebrow}
         </span>
